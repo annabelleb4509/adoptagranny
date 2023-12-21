@@ -20,6 +20,7 @@ footer.page-footer {
 
 * {
 box-sizing: border-box;
+color: rgb(66, 67, 71);
 }
 
 body, html {
@@ -60,7 +61,7 @@ input[type=text]:focus, input[type=password]:focus {
 background-color: #edb7b7;
 outline: none;
 }
-.btn {
+.btn-login {
 background-color: #04AA6D;
 color: white;
 padding: 16px 20px;
@@ -92,4 +93,65 @@ p, h5 {
 
     margin: 50px 0 0 0;
 
+}
+
+
+.container-index {
+    margin: 7em 0 0 0;
+}
+
+.jumbotron {
+    margin: 7em 0 0 0;
+}
+
+.list-group-item {
+
+    border: solid 0.3px #333;
+}
+
+
+
+
+
+
+
+body{font-size:100%;background-image:linear-gradient(top left,#333,black);background-attachment:fixed;}
+*,*:before,*:after{box-sizing:border-box;}
+ul,li{list-style-type:none;}
+.wrapper{margin-top:100px;}
+.wrapper ul{width:50%;margin:0 auto;height:300px;overflow-x:hidden;overflow-y:scroll;padding-right:30px;}
+.wrapper ul li{
+    margin-bottom:20px;
+    padding:10px 20px;
+    background-color:rgba(215, 245, 240, 0.65);
+    position:relative;
+    border-radius:10px;
+    font:1em/1.6 "arial";
+    color:rgba(58, 57, 57, 0.9);
+    clear:both;}
+
+.wrapper ul li:nth-child(odd){float:left;margin-left:80px;}
+.wrapper ul li:nth-child(even){
+    float:right;
+    margin-right:80px;
+    color:rgba(58, 57, 57, 0.9);
+    background-color:rgba(211, 237, 244, 0.3);}
+.wrapper ul li:before,.wrapper ul li:after{position:absolute;content:"";}
+.wrapper ul li:before{width:45px;height:45px;top:0;border-radius:50%;background-position:50% 50%;background-repeat:no-repeat;}
+.wrapper ul li:nth-child(odd):before{left:-80px;}
+
+.wrapper ul li:nth-child(even):before{right:-80px;}
+
+.wrapper ul li:after{width:0;height:0;top:15px;border-top:15px solid rgba(255,255,255,0.65);}
+.wrapper ul li:nth-child(odd):after{left:-15px;border-left:15px solid transparent;}
+.wrapper ul li:nth-child(even):after{right:-15px;border-top-color:rgba(255,255,255,0.3);border-right:15px solid transparent;}
+
+
+
+
+@media only screen and (min-width:768px){
+  .wrapper ul{width:50%;height:300px;}
+}
+@media only screen and (max-width:767px){
+  .wrapper ul{width:90%;height:260px;}
 }

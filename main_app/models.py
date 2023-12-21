@@ -38,7 +38,7 @@ class Conversation(models.Model):
         return f'({self.id})'
 
     def get_absolute_url(self):
-        return reverse('messages_list', kwargs={'profile_id': self.id})
+        return reverse('messages_list', kwargs={'profile_id': self.id, 'conversation_id': None})
 
 
 class Message(models.Model):

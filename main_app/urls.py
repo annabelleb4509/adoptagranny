@@ -21,4 +21,5 @@ urlpatterns = [
     path('messages_list/', views.MessagesListView.as_view(), name='messages_list'),
     path('meet/', views.UserListsView.as_view(), name='users_list'),
     path('inbox/<str:username>/', views.InboxView.as_view(), name='inbox'),
+    path('conversation_index', views.conversation_index, name='conversation_index'),
 ]

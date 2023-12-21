@@ -4,44 +4,50 @@
 
 
 <div class="container">
-    <div class="row">
-      <div class="col">
-        <form action="{% url 'search_results' %}" method="get">
-            <input name="q" type="text" placeholder="Search...">
-            <input type="submit" value="Search" class="btn">
-          </form>
-      </div>
- 
-      <div class="col-8">
-
-        
-        {% for profile in profiles %}
-        <div class="shadow p-3 mb-5 bg-body-tertiary rounded"> 
-        <div class="card mb-2" style="max-width: 550rem;">
- 
-          <div class="row g-0">
-
-            <div class="col-md-8">
-
-              <div class="card-body">
-          
-                <h5 class="card-title">{{ profile.name }}</h5>
+    <div class="container-index">
+        <div class="row">
+            <div class="col"></div>
       
-                <p class="card-text">{{ profile.description|linebreaks }}</p>
-      
-                <footer class="blockquote-footer">{{ profile.city}}, {{ profile.state}} {{ profile.postcode}}</footer>
-                <a href="{% url 'detail' profile.id %}" class="btn btn-light">See more</a>
+            <div class="col-8">
+
+              <div style="margin: 0 0 4em 0;">
+                <form class="row g-3" action="{% url 'search_results' %}" method="get">
+                  <div class="col-10">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input class="form-control" id="inputPassword2" name="q" type="text" placeholder="Search...">
+                  </div>
+                  <div class="col-auto">
+                    <button style="margin: 0 0 0 3em;" type="submit" value="Search" class="btn btn-secondary mb-3">Search</button>
+                  </div>
+                </form>
               </div>
-            </div>
+        
+                    {% for profile in profiles %}
+                    <div class="shadow p-2 mb-3 bg-body-tertiary rounded"> 
+                        <div class="card mb-2" style="max-width: 550rem;">
+                            <div class="row g-0">
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <h5  class="card-title">{{ profile.name }}</h5>   
+                                        <small style="position: absolute; right: 10%;" class="text-body-secondary"> -{{ profile.city }}, {{ profile.state}} {{ profile.postcode}}</small>    
+                                        <p class="card-text">{{ profile.description|linebreaks }}</p>
+                                        <a href="{% url 'detail' profile.id %}" class="btn btn-light">See more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            <div class="col"></div>
+        
           </div>
-        </div>
-      </div>
-          {% endfor %}
-
-
-      </div>
     </div>
-  </div>
+</div>
+
+
+
+
 
 
 

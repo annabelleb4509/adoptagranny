@@ -1,38 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
+<main class="container">
+<div style="margin: 5em;">
 
-<h1>My Messages</h1>
 
-<div class="row">
+    <h1 style="margin: 0 0 2em 0;">My Messages</h1>
 
-    <div class="col s6">
-        <h4>Conversations</h4>
-        {% for message in messages_list %}
-        <div class="card">
-            <div class="card-content">
-        <a href="{% url 'messages_list' %}">
-            <span><strong>{{ message.sender }}</strong> - {{ message.timestamp }}</span>
-        </a>
-    </div>
-</div>
-        {% endfor %}
-    </div>
-
-    <div class="col s6">
-        <!-- {{messages_list}} -->
-        {% for message in messages_list %}
-            <div class="card">
-            <div class="card-content">
-                <span>  
-                    <strong>{{ message.sender }}</strong> - {{ message.timestamp }}
-                </span>
-                <div>{{ message.text }}</div>
-            </div>
+    <div class="row">
+        <div class="col-2"></div>
+            <div class="col-8">
+                <div class="list-group">
+   
+                    {% for message in messages_list %}
+                    <a href="{% url 'conversation_detail' message.conversation.id %}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                        {% if request.user.id == message.sender.user_id %}
+                            <h5 class="mb-1">{{ message.recipient }}</h5>
+                        {% else %}
+                            <h5 class="mb-1">{{ message.sender }}</h5>
+                        {% endif %}
+                            <small class="text-body-secondary">{{ message.timestamp }}</small>
+                        </div>
+                        <p class="mb-1">{{ message.text }}</p>
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
 
-        {% endfor %}
-    </div>
-
-</div>
-
-{% endblock %}
+        </div>
+    </div>    
+</main>
+{% endblock %} 

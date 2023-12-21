@@ -3,48 +3,82 @@
 <main class="container">
 
 
-<h1>User Details</h1>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+<div class="jumbotron">
+    <h3 class="display-4">Details for {{profile.name}}</h3>
+    <p style="margin: 5em 0 0 0;;" class="lead">        
+    
+    <p>Location: {{ profile.city }}, {{ profile.postcode}} {{ profile.state}}</p>
+    <br>
+    <p>{{ profile.description|linebreaks }}</p>
+    <br>
+    <hr class="my-4">
+    <p>Hobbies: {{ profile.hobbies }}</p>
+    <br>
+    <p>This excites me: {{ profile.excitedby }}</p>
+    <br>
+    <p>Skills/abilities: {{ profile.abilities }}</p>
+    <br>
+    <p>I am looking for: {{ profile.lookingfor |linebreaks }}</p>
+</p>    
+    <hr class="my-4">
 
-
-<div class="row">
-    <div class="col s6">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">{{ profile.name }}</span>
-                <p>Location: {{ profile.city }}, {{ profile.postcode}} {{ profile.state}}</p>
-                <br>
-                <p>{{ profile.description|linebreaks }}</p>
-                <br>
-                <p>Hobbies: {{ profile.hobbies }}</p>
-                <br>
-                <p>This excites me: {{ profile.excitedby }}</p>
-                <br>
-                <p>Skills/abilities: {{ profile.abilities }}</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col s6">
-        <p>I am looking for: {{ profile.lookingfor |linebreaks }}</p>
-
+    
+    
+    <p class="lead">
         {% if profile.user_id == request.user.id %}
-        
+        <p>If you want to change the details provided above, you can edit profile information here.</p>
+        <a class="btn btn-secondary" href="{% url 'profile_update' profile.id %}" role="button">EDIT</a>
+        &nbsp;&nbsp;&nbsp;
+        <a class="btn btn-secondary" href="{% url 'profile_delete' profile.id %}" role="button">DELETE</a>
         <div class="card-action">
-            <a href="{% url 'profile_update' profile.id %}">Edit</a>
-            &nbsp; &nbsp;
-            <a href="{% url 'profile_delete' profile.id %}">Delete</a>
+
           </div>
         {% else %}
-        <h6>Send {{ profile.name }} a private message to connect:</h6>
-            <form action="{% url 'send_message' profile.id %}" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Submit!" class="btn">
-              </form>
-        {% endif %}
 
-    </div>
+
+
+
+        <section style="background-color: #dceced;">
+            <div class="container my-3 py-4">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+   
+                    <div class="card-footer py-3 border-0" style="background-color: #f1f7fa; border-radius: 5%;">
+                      <div class="d-flex flex-start w-100">
+                        <div class="form-outline w-100">
+                            <h6 style="font-weight: bold;">Send {{ profile.name }} a message:</h6>
+                            <form action="{% url 'send_message' profile.id %}" method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input style="display: flex; justify-content: center;" type="submit" value="Send message" class="btn btn-secondary btn-sm">
+                              </form>
+                        {% endif %}
+
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+        
+
+    </p>
+  </div>
+  <div class="col-2"></div>
 </div>
+
+</div>
+
 
 </main>
 {% endblock %}

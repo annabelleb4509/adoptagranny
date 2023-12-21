@@ -4,10 +4,24 @@
 
 
 <h2>Conversation</h2>
-<ul>
+<div class="wrapper">
+
+    {% if request.user.id == message.sender.user_id %}
+<ul class="user-messages">
     {% for message in messages %}
         <li>{{ message.sender.user.username }}: {{ message.text }} ({{ message.timestamp }})</li>
     {% endfor %}
 </ul>
+{% else %}
+<ul class="others-messages">
+    {% for message in messages %}
+        <li>{{ message.sender.user.username }}: {{ message.text }} <span style="color:rgb(148, 150, 149)">({{ message.timestamp }})</span></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+</div>
+
+
 
 {% endblock %}

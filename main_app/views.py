@@ -17,7 +17,7 @@ def about(request):
 
 
 def profiles_index(request):
-  profiles = Profile.objects.all()
+  profiles = Profile.objects.all().order_by('name').values()
   return render(request, 'profiles/index.html', {
     'profiles': profiles,
   })
@@ -154,9 +154,15 @@ def conversation_detail(request, conversation_id):
   messages = Message.objects.filter(conversation=conversation).order_by('timestamp')
   return render(request, 'conversation_detail.html', {'conversation': conversation, 'messages': messages})
 
-
-
 ##
+
+def conversation_index(request):
+  conversations = Conversation.objects.all().order_by('message.timestamp').values()
+  return render(request, 'main_app/messages_list.html', {
+    'conversations': conversations,
+  })
+
+
 
 class MessagesListView(LoginRequiredMixin, ListView):
     model = Message
