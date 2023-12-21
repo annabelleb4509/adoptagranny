@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="{% url 'search_results' %}" method="get">
+          <input name="q" type="text" placeholder="Search...">
+          <input type="submit" value="Search" class="btn">
+        </form>
+    </div>
+
+    <div class="col-8">
+
+      {% for profile in object_list %}
+      <div class="shadow p-3 mb-5 bg-body-tertiary rounded"> 
+      <div class="card mb-3" style="max-width: 550rem;">
+    
+        <div class="row g-0">
+    
+          <div class="col-md-8">
+            <div class="card-body">
+        
+              <h5 class="card-title">{{ profile.name }}</h5>
+    
+              <p class="card-text">{{ profile.description|linebreaks }}</p>
+    
+              <footer class="blockquote-footer">{{ profile.city}}, {{ profile.state}} {{ profile.postcode}}</footer>
+              <a href="{% url 'detail' profile.id %}" class="btn btn-light">See more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+        {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

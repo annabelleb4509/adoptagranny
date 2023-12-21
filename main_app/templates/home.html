@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    .background-container {
+      background-image: url('{% static "assets/medium-shot-senior-women-taking-selfie-seaside.jpg" %}');
+      /* Additional background properties can be added here */
+      background-size: cover;
+      background-position: center;
+      height: 100vh; /* Set the height of the container */
+    }
+  </style>
+
+  <div class="background-container">
+    <!-- Your content goes here -->
+    <h1>Home</h1>
+  </div>
+{% endblock %}

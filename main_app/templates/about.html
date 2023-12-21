@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<main class="container">
+
+    <div class="about-container">
+        <div class="container text-center">
+
+            <div class="row">
+        
+                <div class="col-6">
+                    <h1>About Adopt A Granny</h1>
+
+                    <p><em>Adopt a Granny</em> is a project for the community that seeks to connect 
+                        different generations of people.</p>
+                    <br>
+                    <p>In the hustle and bustle of modern life, it's evident that many individuals 
+                    lead exceptionally busy lives. Whether it's the demands of work, study or the 
+                    necessity to relocate to diverse locations, these circumstances often result 
+                    in physical distances from loved ones. This phenomenon leaves the younger generation 
+                    without the comforting presence of parents and grandparents, while simultaneously 
+                    affecting the elderly who find themselves without the cherished company of their 
+                    families. The separation can lead to a sense of disconnection and yearning for 
+                    familial bonds, emphasizing the importance of finding innovative ways to bridge 
+                    these gaps and create meaningful connections.</p>
+
+                    <p>This project aim to facilitate these connections and foster a sense of togetherness. </p>
+                </div>
+
+                <div class="col-6">
+                    <div>
+                        <img class="about-image" src="{% static 'assets/granddaughter-spending-time-with-grandma.jpg' %}" alt="Description of the image">
+                    </div>
+    
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <img class="about-image" style="size: box;" src="{% static 'assets/medium-shot-senior-women-taking-selfie-seaside.jpg' %}" alt="Description of the image">
+                    </div>
+
+                </div>
+                <div style="margin: 20px 0 0 0;" class="col-6">
+
+                    <h1>A Guide on navigating the platform</h1>
+
+                    <h4 style="padding: 10px;">Why join Adopt a Granny</h4>
+
+                    <h5>Welcome to Adopt a Granny! We are excited for you to join the community and find 
+                        new connections.</h5>
+
+                    <p>To get started just create a profile that shows others who you are. It helps to be 
+                        as precise as possible in order to show who you are. Please also line out what you 
+                        are looking for. This will help others determine whether you may be a good fit.</p>
+
+                    <p>The platform works both ways. Anyone can create a profile and upload photos to be found 
+                        by others who are interested. At the same time you are invited to browse profiles of 
+                        community members you would be interested in getting to know. If you found someone, 
+                        just reach out by sending a private message to their inbox.</p>
+   
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

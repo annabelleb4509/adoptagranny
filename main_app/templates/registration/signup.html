@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<style>
+  .background-container {
+      background-image: url('{% static "assets/OldYoungReading.png" %}');
+      /* Additional background properties can be added here */
+      background-size: cover;
+      height: 100vh; /* Set the height of the container */
+      opacity: 60%;
+    }
+
+</style>
+  
+  <div class="background-container">
+      <div class="responsive">
+  
+        <div class="Signup">
+
+        <p class="red-text">{{ error_message }}</p>
+
+        <form style="width:450px; height:375px; color: rgb(248, 244, 244); background-color: rgb(40, 37, 37);" class="container" method="POST" action="{% url 'signup' %}">
+          <h3>Sign Up</h3>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn" value="Sign Up">
+
+          </form>
+        </div>
+  </div>
+  </div>
+  
+
+
+
+{% endblock %}
